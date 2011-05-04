@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="besimple_flat.component_entity.class">BeSimple\FlatBundle\Entity\Component</parameter>
+        <parameter key="besimple_flat.component_persister.class">BeSimple\FlatBundle\Entity\ComponentPersister
+        </parameter>
+    </parameters>
+
+    <services>
+        <service id="besimple_flat.component_persister" class="%besimple_flat.component_persister.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+            <argument>%besimple_flat.component_entity.class%</argument>
+        </service>
+    </services>
+
+</container>
